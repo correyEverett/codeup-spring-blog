@@ -15,7 +15,7 @@ public class MathController {
     @RequestMapping(path ="/subtract/{num1}/and/{num2}", method = RequestMethod.GET)
     @ResponseBody
     public int difference(@PathVariable int num1, @PathVariable int num2) {
-        return num2 - num1;
+        return num1 - num2;
     }
 
     @RequestMapping(path ="/multiply/{num1}/and/{num2}", method = RequestMethod.GET)
