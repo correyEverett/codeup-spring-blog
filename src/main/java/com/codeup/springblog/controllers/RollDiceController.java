@@ -29,6 +29,6 @@ public class RollDiceController {
         model.addAttribute("randomNumber",randomNumber);
         model.addAttribute("message", message);
 
-        return "roll-dice";
+        return "roll-results";
     }
 }
