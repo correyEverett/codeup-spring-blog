@@ -1,7 +1,10 @@
 package com.codeup.springblog.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @Controller
 public class PostController {
@@ -10,12 +13,6 @@ public class PostController {
     @ResponseBody
     public String indexPage() {
         return "This is and index page!";
-    }
-
-    @GetMapping("/posts/{id}")
-    @ResponseBody
-    public String post(@PathVariable int id) {
-        return "You are viewing post #" + id + "!";
     }
 
     @GetMapping("/posts/create")
@@ -28,6 +25,30 @@ public class PostController {
     @ResponseBody
     public String createPost() {
         return "Create post!";
+    }
+
+    @GetMapping("index")
+    public String showAllPost(Model model) {
+
+        ArrayList<Post> allPosts = new ArrayList<>();
+        Post post1 = new Post("title1", "First Post", 1);
+        Post post2 = new Post("title2", "Second Post", 2);
+
+        allPosts.add(post1);
+        allPosts.add(post2);
+
+        model.addAttribute("posts", allPosts);
+
+        return "posts/index";
+    }
+
+    @GetMapping("/posts/{id}")
+    public String showIndividualPost(Model model, @PathVariable String id) {
+        Post singlePost1 = new Post("title", "body", 1);
+
+        model.addAttribute("post", singlePost1);
+
+        return "posts/show";
     }
 
 
