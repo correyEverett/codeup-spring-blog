@@ -28,7 +28,7 @@ public class AdController {
     @GetMapping("/ads/jpa/{id}")
     @ResponseBody
 
-    public Sting viewJpaAd(@PathVariable long id) {
+    public String viewJpaAd(@PathVariable long id) {
         return adsDao.getOne(id).toString();
     }
 
@@ -45,7 +45,7 @@ public class AdController {
         Ad ad = new Ad();
         ad.setTitle("Yellow Submarine");
         ad.setDescription("We all live in a yellow submarine");
-        adsDoa.save(ad);
+        adsDao.save(ad);
     }
 
 
