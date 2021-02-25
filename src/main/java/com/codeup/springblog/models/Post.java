@@ -10,20 +10,20 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, length = 150)
+    @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false, length = 300)
+    @Column(nullable = false)
     private String body;
 
 
 
     public Post() {}
 
-    public Post(String title, String body, long id) {
+    public Post(long id, String title, String body) {
+        this.id = id;
         this.title = title;
         this.body = body;
-        this.id = id;
     }
 
 
