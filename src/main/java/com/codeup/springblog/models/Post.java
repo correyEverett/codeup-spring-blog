@@ -10,10 +10,10 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, length = 150)
+    @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false, length = 300)
+    @Column(nullable = false)
     private String body;
 
 
@@ -25,6 +25,7 @@ public class Post {
         this.title = title;
         this.body = body;
     }
+
 
 
     public long getId() {

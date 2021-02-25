@@ -60,7 +60,7 @@ public class PostController {
     }
 
     @PostMapping("/posts/{id}/edit")
-    public String updatePost(@PathVariable long id, @RequestParam String title, @RequestParam String body) {
+    public String editPost(@PathVariable long id, @RequestParam String title, @RequestParam String body) {
         Post post = new Post(
                 id,
                 title,
