@@ -39,8 +39,8 @@ public class PostController {
     public String showAllPosts(Model model) {
 
         ArrayList<Post> allPosts = new ArrayList<>();
-        Post post1 = new Post("title1", "First Post", 1);
-        Post post2 = new Post("title2", "Second Post", 2);
+        Post post1 = new Post(1, "title1", "First Post");
+        Post post2 = new Post(2, "title2", "Second Post");
 
         allPosts.add(post1);
         allPosts.add(post2);
@@ -52,11 +52,22 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     public String showIndividualPost(Model model, @PathVariable String id) {
-        Post singlePost1 = new Post("title", "body", 1);
+        Post singlePost1 = new Post(1,"title" , "body");
 
         model.addAttribute("post", singlePost1);
 
         return "posts/show";
+    }
+
+    @PostMapping("/posts/{id}/edit")
+    public String updatePost(@PathVariable long id, @RequestParam String title, @RequestParam String body) {
+        Post post = new Post(
+                id,
+                title,
+                body
+        );
+        postsDao.save(post);
+        return "redirect:/posts";
     }
 
     @PostMapping("/posts/{id}/delete")
