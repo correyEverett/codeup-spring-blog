@@ -1,6 +1,7 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
+import com.codeup.springblog.repositries.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,12 @@ import java.util.ArrayList;
 
 @Controller
 public class PostController {
+
+    private final PostRepository postsDao;
+
+    public PostController(PostRepository postsDao) {
+        this.postsDao = postsDao;
+    }
 
     @GetMapping("/post")
     @ResponseBody
@@ -29,7 +36,7 @@ public class PostController {
     }
 
     @GetMapping("index")
-    public String showAllPost(Model model) {
+    public String showAllPosts(Model model) {
 
         ArrayList<Post> allPosts = new ArrayList<>();
         Post post1 = new Post("title1", "First Post", 1);
@@ -50,6 +57,12 @@ public class PostController {
         model.addAttribute("post", singlePost1);
 
         return "posts/show";
+    }
+
+    @PostMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id){
+        postsDao.deleteById(id);
+        return "redirect:/posts";
     }
 
 
