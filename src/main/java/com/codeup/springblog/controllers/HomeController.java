@@ -15,6 +15,11 @@ public class HomeController {
     private final UserRepository usersDao;
     private final PostRepository postsDao;
 
+    public HomeController(UserRepository usersDao, PostRepository postsDao) {
+        this.usersDao = usersDao;
+        this.postsDao = postsDao;
+    }
+
 
     @GetMapping("/")
     public String showLoginForm() {
@@ -27,10 +32,10 @@ public class HomeController {
         return "sign-up";
     }
 
-    @PostMapping("/sign-up")
-    public String createUser(@ModelAttribute User user) {
-
-    }
+//    @PostMapping("/sign-up")
+//    public String createUser(@ModelAttribute User user) {
+//
+//    }
 
 
 
