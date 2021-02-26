@@ -6,7 +6,8 @@
 </head>
 <body>
     <div class="container">
-        <p th:text="${post.title}"></p>
+        <h3 th:text="${post.title}"></h3>
+        <p th:text="'By: ' + ${post.user.email}"></p>
         <p th:text="${post.body}"></p>
     </div>
 </body>
