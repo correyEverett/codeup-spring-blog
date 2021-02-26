@@ -5,9 +5,9 @@
     <title>Individual Post</title>
 </head>
 <body>
-    <article th:each="post : ${post}">
+    <div class="container">
         <p th:text="${post.title}"></p>
         <p th:text="${post.body}"></p>
-    </article>
+    </div>
 </body>
 </html>
