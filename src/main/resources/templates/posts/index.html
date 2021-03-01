@@ -7,7 +7,7 @@
 <body>
     <div th:each="post : ${posts}">
         <h3 th:text="${post.title}"></h3>
-        <p th:text="${post.body}"></p>
+        <textarea th:text="${post.body}"></textarea>
     </div>
 </body>
 </html>
