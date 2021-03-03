@@ -5,10 +5,18 @@
     <title>Individual Post</title>
 </head>
 <body>
+<<<<<<< HEAD
     <h3 th:text="${post.title}"></h3>
     <p th:text="'By: ' + ${post.user.email}"></p>
     <p th:text="${post.body}"></p>
     <div th:replace="partials/scripts :: assets"></div>
     <a th:href="@{|/posts/${post.id}/edit|}">Edit Post</a>
+=======
+    <div class="container">
+        <h3 th:text="${post.title}"></h3>
+        <p th:text="'By: ' + ${post.user.email}"></p>
+        <p th:text="${post.body}"></p>
+    </div>
+>>>>>>> security
 </body>
 </html>
