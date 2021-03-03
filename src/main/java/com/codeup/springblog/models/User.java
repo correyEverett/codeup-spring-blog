@@ -23,13 +23,13 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
-
     public User() {}
 
-    public User(String username, String email, String password) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
+    public User(User copy) {
+        this.id = copy.id;
+        this.username = copy.username;
+        this.password = copy.password;
+        this.email = copy.email;
     }
 
 
