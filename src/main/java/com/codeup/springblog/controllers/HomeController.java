@@ -29,15 +29,18 @@ public class HomeController {
     public String home(){
         return "redirect:login";
     }
+
     @GetMapping("/login")
     public String showLoginForm() {
         return "login";
     }
+
     @GetMapping("/sign-up")
     public String showSignUpForm(Model model) {
         model.addAttribute("user", new User());
         return "sign-up";
     }
+
     @PostMapping("/sign-up")
     public String signUpUser(@ModelAttribute User user) {
         String hash = encoder.encode(user.getPassword());
