@@ -6,7 +6,7 @@
 
 <h1 class="text-center">Sign Up!</h1>
 
-<form class="container" th:action="@{/sign-up}" method="post" th:object="${user}">
+<form class="container" th:action="@{/sign-up}" method="POST" th:object="${user}">
     <div class="form-group">
         <label for="username">Username</label>
         <input class="form-control" type="text" id="username" th:field="*{username}" />
