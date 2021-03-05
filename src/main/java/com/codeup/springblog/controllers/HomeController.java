@@ -27,14 +27,17 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(){
-
         return "redirect:login";
     }
 
     @GetMapping("/login")
     public String showLoginForm() {
-
         return "login";
+    }
+
+    @PostMapping("/login")
+    public String goToPosts(){
+        return "redirect:/posts";
     }
 
     @GetMapping("/sign-up")
@@ -43,9 +46,10 @@ public class HomeController {
         return "sign-up";
     }
 
-    @PostMapping("/sign-up")
-    public String signUpUser(@ModelAttribute User user) {
-        String hash = encoder.encode(user.getPassword());
+    @PostMapping("/signup")
+    public String createUser(@ModelAttribute User user){
+        String password = user.getPassword();
+        String hash = encoder.encode(password);
         user.setPassword(hash);
         usersDao.save(user);
         return "redirect:/login";
