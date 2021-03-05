@@ -46,7 +46,7 @@ public class HomeController {
         return "sign-up";
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/sign-up")
     public String createUser(@ModelAttribute User user){
         String password = user.getPassword();
         String hash = encoder.encode(password);
